@@ -179,7 +179,7 @@ a:active {
 }
 
 ul.row {
-    margin: 0;
+    margin: -1rem;
     padding: 0;
     list-style: none;
 }
@@ -199,9 +199,7 @@ ul.row {
 /* Navbar
     ============================= */
 
-.navbar-menu {
-    float: right;
-}
+
 
 .nav {
     margin: 0;
@@ -366,7 +364,6 @@ ul.row {
 }
 
 /*** 4. CARD ***/
-
 /* Section SERVICES
 ============================= */
 .section-services .row {
