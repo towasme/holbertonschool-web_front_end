@@ -1,0 +1,17 @@
+/* Sass file that assigns the text color #3D3D3D to the HTML tags body and p */
+
+$color-body-p: #3D3D3D;
+$back-color-body-h2: #6D6D6D;
+
+body {
+  color: $color-body-p;
+  background-color: $back-color-body-h2;
+}
+
+p {
+  color: $color-body-p;
+}
+
+h2 {
+  background-color: $back-color-body-h2;
+}
