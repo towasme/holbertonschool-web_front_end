@@ -1,0 +1,12 @@
+/* Write a Sass file that creates classes with different width:
+*/
+
+@function size($size, $var) {
+  @return $size / $var;
+}
+
+@for $i from 1 through 4 {
+  .col-#{$i} {
+    width: size(100%, $i);
+  }
+}
