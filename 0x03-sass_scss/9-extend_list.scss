@@ -1,0 +1,29 @@
+/* Write a Sass file that assigns :
+Font size 12px,
+Text color #00FF00 to class .success
+Text color #FF0000 to class .warning
+*/
+
+%info {
+  font-size: 12px;
+}
+
+%success {
+  color: #00ff00;
+}
+
+%warning {
+  color: #ff0000;
+}
+
+.info, .success, .warning {
+  @extend %info;
+}
+
+.success {
+  @extend %success;
+}
+
+.warning {
+  @extend %warning;
+}
