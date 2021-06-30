@@ -1,7 +1,9 @@
 console.log('Start of the execution queue');
-setTimeout(() => { console.log("Final code block to be executed")}, 0);
+setTimeout(() => {
+    console.log("Final code block to be executed")
+}, 0);
 
-for(let i = 0; i <= 100; i++){
+for (let i = 0; i <= 100; i++) {
     console.log(i);
 }
 
