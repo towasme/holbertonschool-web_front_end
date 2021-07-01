@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        const showWelcomeMessageOrForm = () => {
+            const name = getCookie("Firstname");
+            const email = getCookie("Email");
+            if (name !== "" && email !== "") {
+                hideForm();
+                let title = document.createElement('h1');
+                title.id = "welcome";
+                title.innerHTML = `<strong>Welcome: ${name}</strong><a id="logout" style="font-style: italic; margin-left: 10px;">(logout)</a>`;
+                document.querySelector('main').append(title);
+                document.getElementById('logout').addEventListener('click', deleteCookiesAndShowForm);
+            } else
+                showForm();
+        }
+
+        const showForm = () => {
+            const exist = document.getElementById('welcome');
+            if (exist !== null)
+                exist.remove();
+            let form = document.getElementById('login');
+
+            if (form === null)
+                makeform();
+            else
+                form.style.visibility = 'visible';
+        }
+
+
+        const hideForm = () => {
+            let form = document.getElementById('login');
+
+            if (form !== null)
+                form.style.visibility = 'hidden'
+        }
+
+        const deleteCookiesAndShowForm = () => {
+            Cookies.remove('Fisrtname');
+            Cookies.remove('Email');
+            showForm();
+        }
+
+
+        const makeform = () => {
+            let form = document.createElement('div');
+            form.id = "login";
+            form.innerHTML = '<h2>Login to the website</h2>\
+                                <form id="log">\
+                                <input type="text" placeholder="Firstname" id="firstname" required>\
+                                <input type="text" placeholder="Email" id="email" required>\
+                                <input type="submit" value="Log me in">\
+                                </form>';
+            document.querySelector('main').append(form);
+            const addforme = document.getElementById('log');
+            addforme.addEventListener('submit', function () {
+                const firstname = document.getElementById('firstname').value;
+                const email = document.getElementById('email').value;
+                Cookies.set("Firstname", firstname, { path: '' });
+                Cookies.set("Email", email, { path: '' });
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function(event) {
+            showWelcomeMessageOrForm();
+        });
+    </script>
+    <title>Task 4</title>
+</head>
+<body>
+<main>
+    <form id="login">
+        <h1>Login to the website</h1>
+        <input type="text" id="firstname" placeholder="First Name" required >
+        <input type="email" placeholder="Email" id="email" required>
+        <button onclick="setCookies">Log me in</button>
+        <h1>Cookies</h1>
+        <button id="btn-show-cook">Show the cookies</button>
+    </form>
+</main>
+</body>
+</html>
